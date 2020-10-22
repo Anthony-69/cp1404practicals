@@ -1,6 +1,6 @@
 """
 CP1404 Practical
-cleanup version
+cleanup version (incomplete)
 """
 import shutil
 import os
@@ -9,16 +9,12 @@ import os
 def main():
     """Demo os module functions."""
     print("Starting directory is: {}".format(os.getcwd()))
-
     os.chdir('Lyrics/Christmas')
-
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
-
     try:
         os.mkdir('temp')
     except FileExistsError:
         pass
-
     for filename in os.listdir('.'):
         if os.path.isdir(filename):
             continue
@@ -32,15 +28,4 @@ def get_fixed_filename(filename):
     return new_name
 
 
-def demo_walk():
-    """Process all subdirectories using os.walk()."""
-    os.chdir('Lyrics')
-    for directory_name, subdirectories, filenames in os.walk('.'):
-        print("Directory:", directory_name)
-        print("\tcontains subdirectories:", subdirectories)
-        print("\tand files:", filenames)
-        print("(Current working directory is: {})".format(os.getcwd()))
-
-
 main()
-# demo_walk()
